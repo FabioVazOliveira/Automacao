@@ -35,6 +35,7 @@ public class FormularioStep {
 		page.escrever(elemento.licensePlatenumber, "1");
 		page.escrever(elemento.annualMileage, "10000");
 		page.clicar(elemento.nextenterinsurantdata);
+		
 	}
 
 	@Given("preencho enter insurant data")
