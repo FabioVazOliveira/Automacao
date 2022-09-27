@@ -42,4 +42,13 @@ public class Elementos {
 	public By optionalproducts = By.xpath("//*[@id=\"insurance-form\"]/div/section[3]/div[5]/p/label[1]");
 	public By courtesycar = By.id("courtesycar");
 	public By nextselectpriceoption = By.id("nextselectpriceoption");
+	public By selectsilver = By.xpath("//*[@id=\"priceTable\"]/tfoot/tr/th[2]/label[1]/span");
+	public By nextsendquote = By.id("nextsendquote");
+	public By email = By.id("email");
+	public By phone = By.id("phone");
+	public By username = By.id("username");
+	public By password = By.id("password");
+	public By confirmPassword = By.id("confirmpassword");
+	public By Comments = By.id("Comments");
+	public By sendemail = By.id("sendemail");
 }

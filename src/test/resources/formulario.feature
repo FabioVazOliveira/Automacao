@@ -11,5 +11,6 @@ Feature: Preencher formulario
     And preencho enter insurant data
     And preencho enter product data
     And select price option
+    When send quote
     
   
