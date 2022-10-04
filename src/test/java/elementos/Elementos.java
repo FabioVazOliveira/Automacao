@@ -51,4 +51,5 @@ public class Elementos {
 	public By confirmPassword = By.id("confirmpassword");
 	public By Comments = By.id("Comments");
 	public By sendemail = By.id("sendemail");
+	public By sendemailsucess = By.xpath("/html/body/div[4]/h2");
 }

@@ -4,8 +4,10 @@ import java.io.IOException;
 
 import elementos.Elementos;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import metodos.MetodoPage;
+import metodos.Utils;
 
 public class FormularioStep {
 	MetodoPage page = new MetodoPage();
@@ -63,9 +65,10 @@ public class FormularioStep {
 	}
 
 	@Given("preencho enter product data")
-	public void preencho_enter_product_data() {
+	public void preencho_enter_product_data() throws IOException {
 		page.validarTitle("Enter Product Data");
-		page.escrever(elemento.startdate, "11/30/2022");
+		page.print("product");
+		page.escrever(elemento.startdate, Utils.dataFutura(2,1,0));
 		page.escrever(elemento.insurancesum, "3.000.000.00");
 		page.escrever(elemento.meritrating, "superbonus");
 		page.escrever(elemento.damageinsurance, "fullcoverage");
@@ -75,15 +78,17 @@ public class FormularioStep {
 	}
 
 	@Given("select price option")
-	public void select_price_option() throws InterruptedException {
+	public void select_price_option() throws InterruptedException, IOException {
 		page.validarTitle("Select Price Option");
+		page.print("price");
 		page.clicar(elemento.selectsilver);
 		Thread.sleep(2000);
 		page.clicar(elemento.nextsendquote);
 	}
 	@When("send quote")
-	public void send_Quote() throws InterruptedException {
+	public void send_Quote() throws InterruptedException, IOException {
 		page.validarTitle("Send Quote");
+		page.print("Send");
 		//Thread.sleep(2000);
 		page.escrever(elemento.email, "fabiovazz21@hotmail.com");
 		page.escrever(elemento.phone, "67991707637");
@@ -92,7 +97,12 @@ public class FormularioStep {
 		page.escrever(elemento.confirmPassword, "Programacao1");
 		page.escrever(elemento.Comments, "brasil");
 		page.clicar(elemento.sendemail);
+		Thread.sleep(10000);
 	}
-
+	@Then("valido a mensage de sucesso")
+	public void valido_a_mensage_de_sucesso() {
+	    page.validarMensagem(elemento.sendemailsucess,"Sending e-mail success!");
+	    //page.fecharNavegador();
+	}
 
 }

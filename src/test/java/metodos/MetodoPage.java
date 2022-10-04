@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
-
+import java.sql.Date;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -15,7 +15,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class MetodoPage {
 
 	WebDriver webDriver;
-	
 	public void abrirNavegador(String site) {
 		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
 		webDriver = new ChromeDriver();
@@ -46,6 +45,9 @@ public class MetodoPage {
 		File srcFile = sch.getScreenshotAs(OutputType.FILE);
 		File destFile = new File("./evidencias/"+nome+"./png");
 		FileUtils.copyFile(srcFile, destFile);
-		
 	}
+    public void  validarMensagem(By elemento, String msgEsperado) {
+    	String msg = webDriver.findElement(elemento).getText();
+    	assertEquals(msg, msgEsperado);
+    }
 }

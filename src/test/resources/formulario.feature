@@ -12,5 +12,5 @@ Feature: Preencher formulario
     And preencho enter product data
     And select price option
     When send quote
-    
+    Then valido a mensage de sucesso
   
